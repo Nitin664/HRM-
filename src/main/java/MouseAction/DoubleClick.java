@@ -34,6 +34,7 @@ public class DoubleClick {
 		alert.accept();*/
 		System.out.println("Right click sucess: "+link);
 		
+		
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
