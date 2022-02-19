@@ -5,6 +5,9 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import CRMAction.Action;
 import ExcelFileRead.ExcelUtils;
@@ -16,15 +19,16 @@ public class Login_HRM extends Action {
 	}
 */
 	ExcelUtils excelutils = new ExcelUtils();
-		
+	@BeforeClass	
 	public void loginFunc() throws InterruptedException, IOException {
 
 		browserOpen();
 		screenShot();
 		Login();
 		screenShot();
-	}
 	
+	}
+	@Test
 	public void HRMfunc() throws InterruptedException, IOException {
 		Thread.sleep(4000);
 		// Verify the current URL and check if it contains the string
@@ -44,7 +48,7 @@ public class Login_HRM extends Action {
 		System.out.println("Successfully click on job title");
 		screenShot();
 	}
-
+	@Test
 	public void addJobTital() throws IOException, InterruptedException {
 		// Click on Add button
 		Thread.sleep(3000);
@@ -68,6 +72,10 @@ public class Login_HRM extends Action {
 			screenShot();
 			// click on save button
 			driver.findElement(By.id("btnSave")).click();
+		}
+	}
+	@AfterClass
+	public void logout() throws InterruptedException, IOException{	
 			// log out
 			Thread.sleep(4000);
 			driver.findElement(By.id("welcome")).click();
@@ -81,8 +89,9 @@ public class Login_HRM extends Action {
 			driver.quit();
 		}
 	}
-
-	public static void main(String[] args) throws InterruptedException, IOException {
+	
+	
+	/*public static void main(String[] args) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
 		Login_HRM obj = new Login_HRM();
 		obj.loginFunc();
@@ -92,4 +101,4 @@ public class Login_HRM extends Action {
 
 	}
 
-}
+}*/
